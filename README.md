@@ -1,5 +1,5 @@
 # Wedjat
-PCB检测上位机系统
+流水线PCB缺陷检测上位机系统
 
 目前因本人毕业论文\设计尚未开题答辩,本项目目前闭源，后期会放演示视频
 <img width="2151" height="1304" alt="image" src="https://github.com/user-attachments/assets/1ddd2bb6-a731-4c58-a90e-94c6438da76b" />
