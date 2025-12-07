@@ -2,7 +2,7 @@
 流水线PCB缺陷检测上位机系统
 
 目前因本人毕业论文\设计尚未开题答辩,本项目目前闭源，后期会放演示视频
-https://github.com/user-attachments/assets/37bef3f0-8f8e-4e5d-ad4b-094b5b69c100
+
 <img width="1196" height="743" alt="image" src="https://github.com/user-attachments/assets/c8ff1269-de3e-471a-814f-3f8cca36cdda" />
 <img width="2153" height="1297" alt="image" src="https://github.com/user-attachments/assets/fba7ee26-49ab-48d1-9df8-1a32311ccab5" />
 <img width="2152" height="1294" alt="image" src="https://github.com/user-attachments/assets/06708894-5391-4c70-8991-f4c6c1c080a6" />
