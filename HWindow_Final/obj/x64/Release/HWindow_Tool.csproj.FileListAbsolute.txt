@@ -1,0 +1,13 @@
+D:\PrintLocate1109\PrintLocate1109\halcon控件\obj\x64\Release\HWindow_Tool.csproj.AssemblyReference.cache
+D:\PrintLocate1109\PrintLocate1109\halcon控件\obj\x64\Release\HalconControl.HWindow_Final.resources
+D:\PrintLocate1109\PrintLocate1109\halcon控件\obj\x64\Release\ViewROI.Properties.Resources.resources
+D:\PrintLocate1109\PrintLocate1109\halcon控件\obj\x64\Release\HWindow_Tool.csproj.GenerateResource.cache
+D:\PrintLocate1109\PrintLocate1109\halcon控件\obj\x64\Release\HWindow_Tool.csproj.CoreCompileInputs.cache
+D:\PrintLocate1109\PrintLocate1109\halcon控件\bin\x64\Release\HWindow_Tool.dll.config
+D:\PrintLocate1109\PrintLocate1109\halcon控件\bin\x64\Release\HWindow_Tool.dll
+D:\PrintLocate1109\PrintLocate1109\halcon控件\bin\x64\Release\HWindow_Tool.pdb
+D:\PrintLocate1109\PrintLocate1109\halcon控件\bin\x64\Release\halcondotnet.dll
+D:\PrintLocate1109\PrintLocate1109\halcon控件\bin\x64\Release\halcondotnet.xml
+D:\PrintLocate1109\PrintLocate1109\halcon控件\obj\x64\Release\HWindow_Tool.csproj.CopyComplete
+D:\PrintLocate1109\PrintLocate1109\halcon控件\obj\x64\Release\HWindow_Tool.dll
+D:\PrintLocate1109\PrintLocate1109\halcon控件\obj\x64\Release\HWindow_Tool.pdb

@@ -1,0 +1,12 @@
+E:\NExtVison版本\2023.3.6\NExtVison\halcon控件\bin\Release\HWindow_Tool.dll.config
+E:\NExtVison版本\2023.3.6\NExtVison\halcon控件\bin\Release\HWindow_Tool.dll
+E:\NExtVison版本\2023.3.6\NExtVison\halcon控件\bin\Release\HWindow_Tool.pdb
+E:\NExtVison版本\2023.3.6\NExtVison\halcon控件\bin\Release\halcondotnet.dll
+E:\NExtVison版本\2023.3.6\NExtVison\halcon控件\obj\Release\HWindow_Tool.csproj.AssemblyReference.cache
+E:\NExtVison版本\2023.3.6\NExtVison\halcon控件\obj\Release\HalconControl.HWindow_Final.resources
+E:\NExtVison版本\2023.3.6\NExtVison\halcon控件\obj\Release\ViewROI.Properties.Resources.resources
+E:\NExtVison版本\2023.3.6\NExtVison\halcon控件\obj\Release\HWindow_Tool.csproj.GenerateResource.cache
+E:\NExtVison版本\2023.3.6\NExtVison\halcon控件\obj\Release\HWindow_Tool.csproj.CoreCompileInputs.cache
+E:\NExtVison版本\2023.3.6\NExtVison\halcon控件\obj\Release\HWindow_Tool.csproj.CopyComplete
+E:\NExtVison版本\2023.3.6\NExtVison\halcon控件\obj\Release\HWindow_Tool.dll
+E:\NExtVison版本\2023.3.6\NExtVison\halcon控件\obj\Release\HWindow_Tool.pdb

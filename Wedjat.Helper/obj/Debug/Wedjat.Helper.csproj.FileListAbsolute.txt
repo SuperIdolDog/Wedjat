@@ -1,0 +1,17 @@
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Helper\bin\Debug\Wedjat.Helper.dll
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Helper\bin\Debug\Wedjat.Helper.pdb
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Helper\bin\Debug\NLog.dll
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Helper\bin\Debug\Wedjat.Model.dll
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Helper\bin\Debug\FreeSql.DbContext.dll
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Helper\bin\Debug\FreeSql.dll
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Helper\bin\Debug\Wedjat.Model.pdb
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Helper\bin\Debug\NLog.xml
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Helper\bin\Debug\FreeSql.DbContext.pdb
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Helper\bin\Debug\FreeSql.DbContext.xml
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Helper\bin\Debug\FreeSql.pdb
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Helper\bin\Debug\FreeSql.xml
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Helper\obj\Debug\Wedjat.Helper.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Helper\obj\Debug\Wedjat.Helper.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Helper\obj\Debug\Wedjat.H.C1031A5A.Up2Date
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Helper\obj\Debug\Wedjat.Helper.dll
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Helper\obj\Debug\Wedjat.Helper.pdb

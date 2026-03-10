@@ -1,0 +1,6 @@
+@Wedjat.MiniMES_HostAddress = http://localhost:5059
+
+GET {{Wedjat.MiniMES_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

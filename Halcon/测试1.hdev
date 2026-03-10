@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="25.05.0.0">
+<procedure name="main">
+<interface/>
+<body>
+<c>* -------------------- 1. 读图并准备 ROI --------------------</c>
+<c>*读取一张图片</c>
+<l>* read_image (Image01Full, 'C:/Users/Lenovo/Desktop/CSharp项目/就业项目/Wedjat/PCBImages/PCBA0001_20251207105247298_Trigger.png')</l>
+<c>*转化灰度图</c>
+<l>* rgb1_to_gray (Image01Full, GrayImage)</l>
+<c>* 粗定位：4 个标点</c>
+<l>* threshold (GrayImage, MarkCandidates, 100, 255)</l>
+<c>*连通分离标点</c>
+<l>* connection (MarkCandidates, ConnectedMarks)</l>
+<c>*根据面积筛选4个标点</c>
+<l>* select_shape (ConnectedMarks, MarkRegions, ['area', 'circularity'], 'and', [6000, 0.4], [90000, 1.0])</l>
+<c>*查找标点的中心点</c>
+<l>* area_center (MarkRegions, _, RowDetect, ColDetect)</l>
+<c>* 构建 ROI 四边形</c>
+<l>* RowPoints := [RowDetect[0],RowDetect[1],RowDetect[3],RowDetect[2],RowDetect[0]]</l>
+<l>* ColPoints := [ColDetect[0],ColDetect[1],ColDetect[3],ColDetect[2],ColDetect[0]]</l>
+<c>*根据4给点位ROI</c>
+<l>* gen_region_polygon (PolygonRegion, RowPoints, ColPoints)</l>
+<c>*填充这个矩形</c>
+<l>* fill_up (PolygonRegion, FilledRegion)</l>
+<c>*将ROI裁剪出来</c>
+<l>* reduce_domain (GrayImage, FilledRegion, ImageROI)</l>
+<c>*ROI转换成灰度图</c>
+<l>* rgb1_to_gray(ImageROI, ROIGrayImage)</l>
+<c>*高斯模糊灰度图</c>
+<l>* gauss_filter (ROIGrayImage, ImageGauss, 11)</l>
+<c>*ROI二值化</c>
+<l>* threshold (ImageGauss, ROIRegion, 100, 255)</l>
+<c></c>
+<c>*连通ROI</c>
+<l>* connection (ROIRegion, ConnectedROI)</l>
+<c>*筛选图像</c>
+<l>* select_shape (ConnectedROI, ROIRegions, 'area', 'and', 500, 6200)</l>
+<c>*腐蚀</c>
+<l>* erosion_circle (ROIRegions, RegionErosion, 9)</l>
+<c>*膨胀</c>
+<l>* dilation_circle (RegionErosion, RegionDilation, 12)</l>
+<c>*创建NCC模板</c>
+<l>* create_ncc_model (ROIGrayImage, 'auto', 0, 0, 'auto', 'use_polarity', ModelID)</l>
+<c>*将完美NCC模板导出</c>
+<l>* write_ncc_model (ModelID, 'C:/Users/Lenovo/Desktop/CSharp项目/就业项目/Wedjat/PCB/01完美模板/01_FULL.ncm')</l>
+<l>*  write_region (RegionDilation, 'C:/Users/Lenovo/Desktop/CSharp项目/就业项目/Wedjat/PCB/01完美模板/01_FULL.reg')</l>
+<c></c>
+<l>* area_center (FilledRegion, _, TemplateRefRow, TemplateRefCol)</l>
+<c></c>
+<c>* 2. 模板的初始角度（与create_ncc_model的角度范围一致，这里创建时角度范围是0-0，所以参考角度为0）</c>
+<l>* TemplateRefAngle := 0</l>
+<c></c>
+<c>* 3. 将参考点（行、列、角度）保存为.tup文件（供后续C#代码读取）</c>
+<c>* 格式：[TemplateRefRow, TemplateRefCol, TemplateRefAngle]</c>
+<l>* tuple_concat (TemplateRefRow, TemplateRefCol, TempTuple)</l>
+<l>* tuple_concat (TempTuple, TemplateRefAngle, RefTuple)</l>
+<l>* write_tuple (RefTuple, 'C:/Users/Lenovo/Desktop/CSharp项目/就业项目/Wedjat/PCB/01完美模板/01_FULL.tup')</l>
+<c></c>
+<c></c>
+<c>* -------------------- 预处理图像（PreprocessImage）Halcon实现 --------------------</c>
+<c>* 1. 读取原始图像（请替换为实际图像路径）</c>
+<l>read_image (OriginalImage, 'C:/Users/Lenovo/Desktop/CSharp项目/就业项目/Wedjat/PCBImages/PCBA0001_20251207111403314_Trigger.png')</l>
+<c></c>
+<c>* 2. 灰度化</c>
+<l>rgb1_to_gray (OriginalImage, GrayImage)</l>
+<l>illuminate(GrayImage, ImageIlluminate, 101, 101, 0.7)</l>
+<c></c>
+<c>* 3. 加载NCC模板（请替换为实际模板路径）</c>
+<l>read_ncc_model ('C:/Users/Lenovo/Desktop/CSharp项目/就业项目/Wedjat/PCB/01完美模板/01_FULL.ncm', ModelID)</l>
+<c></c>
+<c>* 4. NCC模板匹配（参数可调整：角度范围、匹配得分、重叠阈值等）</c>
+<l>find_ncc_model (GrayImage, ModelID, 0, 0, 0.7, 1, 0.5, 'true', 0, MatchRow, MatchCol, MatchAngle, Score)</l>
+<c></c>
+<c>* 5. 校验匹配结果</c>
+<c></c>
+<l>if (Score[0] &lt; 0.4)</l>
+<c>    * 情况2：找到匹配但得分不足，格式化分数报错</c>
+<l>    tuple_string (Score[0], '%.2f', ScoreStr)  </l>
+<c>    * 格式化分数为2位小数</c>
+<l>    ErrorMsg := 'NCC模板匹配失败，得分: ' + ScoreStr + '（需≥0.7）'</l>
+<l>    throw (ErrorMsg)</l>
+<l>endif</l>
+<c></c>
+<c>* 6. 生成模板匹配ROI（矩形大小可调整：半宽、半高）</c>
+<l>gen_rectangle2 (TemplateMatchROI, MatchRow[0], MatchCol[0], MatchAngle[0], 2000, 1000)</l>
+<c></c>
+<c>* 7. 裁剪ROI</c>
+<l>reduce_domain (GrayImage, TemplateMatchROI, GrayImage)</l>
+<c></c>
+<c>* 8. 高斯滤波（去噪，核大小可调整）</c>
+<l>gauss_filter (GrayImage, GaussGray, 5)</l>
+<c></c>
+<c>* 9. 二值化找标点（阈值范围可调整）</c>
+<l>threshold (GaussGray, MarkCandidates, 100, 255)</l>
+<c></c>
+<c>* 10. 连通区域分析</c>
+<l>connection (MarkCandidates, ConnectedRegions)</l>
+<c></c>
+<c>* 11. 筛选标点（面积范围可调整）</c>
+<c></c>
+<l>select_shape (ConnectedRegions, SelectedMarks, ['area', 'circularity'], 'and', [6000, 0.4], [90000, 1.0])</l>
+<c>* 12. 校验标点数量</c>
+<l>count_obj (SelectedMarks, MarkCount)</l>
+<l>if (MarkCount != 4)</l>
+<l>    throw ('标点数量异常，需4个实际检测到' + MarkCount + '个')</l>
+<l>endif</l>
+<c></c>
+<c>* 13. 获取标点中心坐标</c>
+<l>area_center (SelectedMarks, _, RowDetect, ColDetect)</l>
+<c></c>
+<c>* 14. 构造四边形顶点（闭合多边形）</c>
+<l>RowPoints := [RowDetect[0], RowDetect[1], RowDetect[3], RowDetect[2], RowDetect[0]]</l>
+<l>ColPoints := [ColDetect[0], ColDetect[1], ColDetect[3], ColDetect[2], ColDetect[0]]</l>
+<c></c>
+<c>* 15. 生成多边形ROI</c>
+<l>gen_region_polygon (PolygonRegion, RowPoints, ColPoints)</l>
+<c></c>
+<c>* 16. 填充多边形</c>
+<l>fill_up (PolygonRegion, FilledRegion)</l>
+<c></c>
+<c>* 17. 提取ROI区域（基于原始图像）</c>
+<l>reduce_domain (OriginalImage, FilledRegion, ImageROI)</l>
+<c></c>
+<c>* 18. ROI区域灰度化</c>
+<l>rgb1_to_gray (ImageROI, GrayROI)</l>
+<c></c>
+<c>* 19. 高斯滤波（去噪，核大小可调整）</c>
+<l>gauss_filter (GrayROI, FilteredImage, 11)</l>
+<c></c>
+<c>* 20. 二值化（阈值范围可调整）</c>
+<l>threshold (FilteredImage, ThresholdRegion, 100, 255)</l>
+<c></c>
+<c>* 21. 连通缺陷区域</c>
+<l>connection (ThresholdRegion, ConnectedDefects)</l>
+<c></c>
+<c>* 22. 筛选缺陷区域（面积范围可调整）</c>
+<l>select_shape (ConnectedDefects, SelectedDefects, 'area', 'and', 0, 8000)</l>
+<c></c>
+<c>* 23. 腐蚀操作（半径可调整）</c>
+<l>erosion_circle (SelectedDefects, ErodedRegion, 8)</l>
+<c></c>
+<c>* 24. 膨胀操作（半径可调整）</c>
+<l>dilation_circle (ErodedRegion, DilatedRegion, 14)</l>
+<c></c>
+<c>* 输出最终预处理区域</c>
+<c></c>
+<c>* -------------------- 3. 新增：差值计算（缺陷检测核心） --------------------</c>
+<c>* 3.1 加载模板的标准区域（TemplateRegion）</c>
+<l>read_region (TemplateRegion, 'C:/Users/Lenovo/Desktop/CSharp项目/就业项目/Wedjat/PCB/01完美模板/01_FULL.reg')</l>
+<c></c>
+<c>* 3.2 加载模板参考点（用于对齐）</c>
+<l>read_tuple ('C:/Users/Lenovo/Desktop/CSharp项目/就业项目/Wedjat/PCB/01完美模板/01_FULL.tup', RefTuple)</l>
+<l>TemplateRefRow := RefTuple[0]</l>
+<l>TemplateRefCol := RefTuple[1]</l>
+<l>TemplateRefAngle := RefTuple[2]</l>
+<c></c>
+<c>* 3.3 生成变换矩阵：将模板区域对齐到测试图像的匹配位置</c>
+<l>vector_angle_to_rigid (TemplateRefRow, TemplateRefCol, TemplateRefAngle, MatchRow[0], MatchCol[0], MatchAngle[0], HomMat2D)</l>
+<c></c>
+<c>* 3.4 变换模板区域到测试图像坐标系（确保与TestRegion对齐）</c>
+<l>affine_trans_region (TemplateRegion, AlignedTemplateRegion, HomMat2D, 'nearest_neighbor')</l>
+<c></c>
+<c>* 3.5 计算差值（核心！）</c>
+<c>* 模板有、测试无 → 缺失缺陷</c>
+<l>difference (AlignedTemplateRegion, DilatedRegion, MissingDefects)</l>
+<l>* difference (AlignedTemplateRegion, TestRegion, MissingDefects)</l>
+<c></c>
+<c>* 测试有、模板无 → 多余缺陷</c>
+<l>* difference (TestRegion, AlignedTemplateRegion, ExtraDefects)</l>
+<c></c>
+<c>* 3.6 过滤小面积噪声（避免误判）</c>
+<l>select_shape (MissingDefects, ValidMissing, ['area', 'circularity'], 'and', [1000,0.2], [9900,1.0])  // 面积≥50视为有效缺陷</l>
+<c></c>
+<l>* select_shape (ExtraDefects, ValidExtra, 'area', 'and', 50, 999999)</l>
+<c></c>
+<c>* 3.7 统计缺陷数量</c>
+<l>count_obj (ValidMissing, MissingCount)</l>
+<l>* count_obj (ValidExtra, ExtraCount)</l>
+<c></c>
+<c>* 3.8 输出结果</c>
+<l>dev_close_window ()</l>
+<l>dev_open_window (0, 0, 800, 600, 'white', WindowHandle)</l>
+<c></c>
+<l>dev_display (OriginalImage)</l>
+<l>dev_set_color ('red')</l>
+<l> dev_display (ValidMissing)  // 红色标记缺失缺陷</l>
+<l>* dev_set_color ('blue')</l>
+<l>* dev_display (ValidExtra)    // 蓝色标记多余缺陷</l>
+<l>tuple_string (MissingCount, 'i', MissingStr)</l>
+<l>ErrorMsg := '缺失缺陷数量: ' + MissingStr</l>
+<l>* tuple_string (ExtraCount, '多余缺陷数量: %d', ExtraStr)</l>
+<l>dev_disp_text (ErrorMsg, 'window', 10, 10, 'black', 'box', 'false')</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

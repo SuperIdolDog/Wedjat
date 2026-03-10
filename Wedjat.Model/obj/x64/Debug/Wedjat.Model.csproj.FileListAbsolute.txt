@@ -1,0 +1,17 @@
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Model\bin\x64\Debug\Wedjat.Model.dll
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Model\bin\x64\Debug\Wedjat.Model.pdb
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Model\bin\x64\Debug\FreeSql.DbContext.dll
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Model\bin\x64\Debug\FreeSql.dll
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Model\bin\x64\Debug\FreeSql.Provider.Sqlite.dll
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Model\bin\x64\Debug\System.Data.SQLite.dll
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Model\bin\x64\Debug\FreeSql.pdb
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Model\bin\x64\Debug\FreeSql.xml
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Model\bin\x64\Debug\FreeSql.DbContext.pdb
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Model\bin\x64\Debug\FreeSql.DbContext.xml
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Model\bin\x64\Debug\FreeSql.Provider.Sqlite.pdb
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Model\bin\x64\Debug\System.Data.SQLite.xml
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Model\obj\x64\Debug\Wedjat.Model.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Model\obj\x64\Debug\Wedjat.Model.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Model\obj\x64\Debug\Wedjat.M.42C140D5.Up2Date
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Model\obj\x64\Debug\Wedjat.Model.dll
+C:\Users\Lenovo\Desktop\CSharp项目\就业项目\Wedjat\Wedjat.Model\obj\x64\Debug\Wedjat.Model.pdb

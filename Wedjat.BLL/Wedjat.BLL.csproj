@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0ABC2636-E4BD-443B-AC0C-053611BE07F5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Wedjat.BLL</RootNamespace>
+    <AssemblyName>Wedjat.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FreeSql, Version=3.5.215.0, Culture=neutral, PublicKeyToken=a33928e5d4a4b39c" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseBLL.cs" />
+    <Compile Include="DatabaseBLL.cs" />
+    <Compile Include="IniService.cs" />
+    <Compile Include="PCBBLL.cs" />
+    <Compile Include="PCBDefectDetailBLL.cs" />
+    <Compile Include="PCBDefectTypeBLL.cs" />
+    <Compile Include="PCBInspectionBLL.cs" />
+    <Compile Include="PLCLogBLL.cs" />
+    <Compile Include="PLCSlaveVariableBLL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportBLL.cs" />
+    <Compile Include="ScannerDataBLL.cs" />
+    <Compile Include="SysLogBLL.cs" />
+    <Compile Include="WorkOrderBLL.cs" />
+    <Compile Include="WorkOrderPCBBLL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wedjat.DAL\Wedjat.DAL.csproj">
+      <Project>{9f39badd-8e05-4c7d-8f83-cd8551b47077}</Project>
+      <Name>Wedjat.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wedjat.Driver\Wedjat.Driver.csproj">
+      <Project>{39d294e8-8b13-4895-abab-e4420c1af5bc}</Project>
+      <Name>Wedjat.Driver</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wedjat.Helper\Wedjat.Helper.csproj">
+      <Project>{5690a57d-8532-4902-ae4c-c87da5c8426f}</Project>
+      <Name>Wedjat.Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wedjat.Model\Wedjat.Model.csproj">
+      <Project>{6e255ea0-ef1f-4187-b9b7-a4e7fbd5c967}</Project>
+      <Name>Wedjat.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

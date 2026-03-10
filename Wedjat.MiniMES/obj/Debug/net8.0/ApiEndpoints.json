@@ -1,0 +1,55 @@
+[
+  {
+    "ContainingType": "Wedjat.MiniMES.Controllers.ScadaController",
+    "Method": "ScannerGetWorkOrder",
+    "RelativePath": "api/Scada/GetWorkOrder",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "scannerCode",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Wedjat.MiniMES.Controllers.ScadaController",
+    "Method": "UserLogin",
+    "RelativePath": "api/Scada/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "workId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "password",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Wedjat.MiniMES.Controllers.ScadaController",
+    "Method": "ScadaPushPCBInspection",
+    "RelativePath": "api/Scada/PushPCBInspection",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "toMes",
+        "Type": "Wedjat.MiniMES.DTO.ScadaToMes",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

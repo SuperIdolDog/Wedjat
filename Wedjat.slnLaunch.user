@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "一键启动",
+    "Projects": [
+      {
+        "Path": "Wedjat.WinForm\\Wedjat.WinForm.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Wedjat.MiniMES\\Wedjat.MiniMES.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

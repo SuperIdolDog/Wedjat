@@ -1,0 +1,177 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Wedjat.MiniMES",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Scada/Login": {
+      "post": {
+        "tags": [
+          "Scada"
+        ],
+        "parameters": [
+          {
+            "name": "workId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Scada/GetWorkOrder": {
+      "get": {
+        "tags": [
+          "Scada"
+        ],
+        "parameters": [
+          {
+            "name": "scannerCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Scada/PushPCBInspection": {
+      "post": {
+        "tags": [
+          "Scada"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScadaToMes"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScadaToMes"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScadaToMes"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "MesInspectionDefect": {
+        "type": "object",
+        "properties": {
+          "inspectionCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "defectCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "defectName": {
+            "type": "string",
+            "nullable": true
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderStatus": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "ScadaToMes": {
+        "type": "object",
+        "properties": {
+          "inspectionCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "workOrderCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "pcbCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "pcbsn": {
+            "type": "string",
+            "nullable": true
+          },
+          "inspectionTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "isQualified": {
+            "type": "boolean"
+          },
+          "workId": {
+            "type": "string",
+            "nullable": true
+          },
+          "workName": {
+            "type": "string",
+            "nullable": true
+          },
+          "productLine": {
+            "type": "string",
+            "nullable": true
+          },
+          "workOrderStatus": {
+            "$ref": "#/components/schemas/OrderStatus"
+          },
+          "detectedDefects": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MesInspectionDefect"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
