@@ -1,4 +1,7 @@
 # Wedjat
+
+https://www.bilibili.com/video/BV18V2rBmEg8/
+
 流水线PCB缺陷检测上位机系统（
 开源版本:
 检测代码为固定代码（写死），
