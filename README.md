@@ -2,7 +2,7 @@
 
 https://www.bilibili.com/video/BV18V2rBmEg8/
 
-基于 Halcon + 海康 MVS 相机 + 西门子 PLC (TIA Portal V17) 开发的工业视觉检测上位机，适用于 PCB 流水线自动化缺陷检测演示与学习。
+基于 Halcon + 海康工业相机(MVS) + 西门子 PLC (TIA Portal V17) 开发的工业视觉检测上位机，适用于 PCB 流水线自动化缺陷检测演示与学习。
 
 项目说明
 本项目为简化开源版，仅实现基础视觉检测流程与界面交互
