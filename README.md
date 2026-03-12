@@ -2,7 +2,7 @@
 
 https://www.bilibili.com/video/BV18V2rBmEg8/
 
-基于WinForm(AntdUI：https://gitee.com/AntdUI/AntdUI) + Halcon + 海康工业相机(MVS) + 西门子 PLC (TIA Portal V17) 开发的工业视觉检测上位机，适用于 PCB 流水线自动化缺陷检测演示与学习。
+基于WinForm(AntdUI：https://gitee.com/AntdUI/AntdUI) + Halcon + 海康威视工业相机 MV-CU120-10GC(MVS) + 西门子 PLC 1214C DC/DC/DC(TIA Portal V17) 开发的工业视觉检测上位机，适用于 PCB 流水线自动化缺陷检测演示与学习。
 
 项目说明
 
