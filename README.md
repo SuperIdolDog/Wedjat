@@ -62,6 +62,7 @@ PCB 检测系统流程演示、
 
 最终将检测结果与数据上传至 MES 系统
 
+<img width="9502" height="4861" alt="image" src="https://github.com/user-attachments/assets/1eab5f99-5574-41aa-b140-3552e133262a" />
 
 <img width="566" height="419" alt="image" src="https://github.com/user-attachments/assets/b880a96f-bf58-470d-854e-674978172a3d" />
 
